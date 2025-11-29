@@ -4,11 +4,10 @@ using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace TaskService.src.Model
+namespace TaskService.src.Dto
 {
-    public class Task
+    public class CreateTaskDto
     {
-        public Guid Id {get; set;} = Guid.NewGuid();
 
         public Guid DocumentId {get; set;} 
 
@@ -16,14 +15,10 @@ namespace TaskService.src.Model
 
         public string Title {get; set;} = string.Empty!;
 
-        public string comments {get;set;} = string.Empty!;
-
-        public string CompleteDescription = string.Empty!;
+        public string? CompleteDescription {get; set;}
 
         [RegularExpression(@"^(Pendiente|En Progreso|Completado)$", ErrorMessage = "El estado ingresado no es válido.")]
-        public string State {get; set;} = "pendiente";
-
-        public bool IsActive {get; set;} = true;
+        public string State {get; set;} = string.Empty!;
 
     }
 }

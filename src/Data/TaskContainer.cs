@@ -1,12 +1,12 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Threading.Tasks;
+using TaskService.src.Model;
 
 namespace TaskService.src.Data
 {
     public class TaskContainer
     {
-        public List<Task> Tasks {get; set;} = new();
+        public List<TaskModel> Tasks {get; set;} = new();
     }
 }
