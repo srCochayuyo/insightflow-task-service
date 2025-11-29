@@ -20,5 +20,7 @@ namespace TaskService.src.Dto
         [RegularExpression(@"^(Pendiente|En Progreso|Completado)$", ErrorMessage = "El estado ingresado no es válido.")]
         public string State {get; set;} = string.Empty!;
 
+        public string ExpirationDate {get;set;} = string.Empty!;
+
     }
 }

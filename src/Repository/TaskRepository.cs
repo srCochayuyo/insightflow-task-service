@@ -26,7 +26,8 @@ namespace TaskService.src.Repository
                 UserId = request.UserId,
                 Title = request.Title,
                 CompleteDescription = request.CompleteDescription,
-                State = request.State
+                State = request.State,
+                ExpirationDate = request.ExpirationDate
 
             };
 

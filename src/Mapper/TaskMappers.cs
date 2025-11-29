@@ -17,7 +17,8 @@ namespace TaskService.src.Mapper
                 UserId = task.UserId,
                 Title = task.Title,
                 CompleteDescription = task.CompleteDescription,
-                State = task.State
+                State = task.State,
+                ExpirationDate = task.ExpirationDate
             };
         }
     }

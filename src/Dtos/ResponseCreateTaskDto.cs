@@ -18,5 +18,7 @@ namespace TaskService.src.Dto
         public string? CompleteDescription{get; set;}
 
         public string State {get; set;} = string.Empty!;
+
+        public string ExpirationDate {get;set;} = string.Empty!;
     }
 }
