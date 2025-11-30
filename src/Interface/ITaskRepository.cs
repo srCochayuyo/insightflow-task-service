@@ -16,5 +16,7 @@ namespace TaskService.src.Interface
         public ResponseGetTaskDto? GetTaskById (Guid Id);
 
         public ResponseEditTaskDto EditTask(Guid Id, EditTaskDto request);
+
+        public bool ToggleTrashCan(Guid Id);
     }
 }

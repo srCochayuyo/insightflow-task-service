@@ -7,7 +7,7 @@ namespace TaskService.src.Dto
 {
     public class ResponseCreateTaskDto
     {
-        public Guid Id {get; set;} = Guid.NewGuid();
+        public Guid Id {get; set;} 
 
         public Guid DocumentId {get; set;} 
 

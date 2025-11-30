@@ -17,7 +17,7 @@ namespace TaskService.src
             _taskRepository = taskRepository;
         }
 
-        [HttpPost("Tasks")]
+        [HttpPost("tasks")]
         public IActionResult CreateTask(CreateTaskDto request)
         {
             try
@@ -119,10 +119,28 @@ namespace TaskService.src
             }
         }
 
+        [HttpPatch("tasks/{Id}")]
+        public IActionResult ToggleTrashCan(Guid Id)
+        {
+            try
+            {
 
-        
+                var result =  _taskRepository.ToggleTrashCan(Id);
 
-        
+                return Ok(new
+                {
+                    message = result ? "Tarea restaurada" : "Tarea enviada a papelera",
+                    isActive = result
+                });
+                
+            }
+            catch (Exception e)
+            {
+                return StatusCode(500, new { message = e.Message });
+            }
+        }
+
+
 
 
     }

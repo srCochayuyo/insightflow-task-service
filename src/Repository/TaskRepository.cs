@@ -75,8 +75,7 @@ namespace TaskService.src.Repository
             }
 
             if (request.UserId.HasValue && request.UserId.Value != Guid.Empty)
-            {
-                
+            {    
                 exist.UserId = request.UserId.Value;
             }
 
@@ -108,6 +107,21 @@ namespace TaskService.src.Repository
         
 
             return exist.ToGetEditResponse();
+
+        }
+
+        public bool ToggleTrashCan(Guid Id)
+        {
+            var exist = _container.Tasks.FirstOrDefault(t => t.Id == Id);
+
+            if(exist == null)
+            {
+                throw new Exception ("Error: Tarea no encontrada");
+            }     
+
+            exist.IsActive = !exist.IsActive;
+
+            return exist.IsActive;
 
         }
     }
