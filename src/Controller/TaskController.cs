@@ -65,6 +65,35 @@ namespace TaskService.src
             }
         }
 
+        [HttpGet("tasks/{Id}")]
+        public IActionResult GetTaskById (Guid Id)
+        {
+            try
+            {
+                var task = _taskRepository.GetTaskById(Id);
+
+                if(task == null)
+                {
+                    return NotFound("Error: Tarea no encontrada");
+                }
+
+                var response = new
+                {
+                    message = "Tareas Obtenidas con exito",
+                    Task = task
+                };
+
+                return Ok(response);
+            }
+            catch (Exception e)
+            {
+                
+                return StatusCode(500, new { message = e.Message });
+            }
+        }
+
+        
+
         
 
 

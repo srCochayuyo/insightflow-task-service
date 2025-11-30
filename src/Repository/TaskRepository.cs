@@ -52,5 +52,17 @@ namespace TaskService.src.Repository
 
             return result;
         }
+
+        public ResponseGetTaskDto? GetTaskById (Guid Id)
+        {
+            var result = _container.Tasks.FirstOrDefault(t => t.Id == Id && t.IsActive);
+
+            if (result == null) 
+            {
+                return null; 
+            }
+
+            return result.ToGetTaskResponse();
+        }
     }
 }

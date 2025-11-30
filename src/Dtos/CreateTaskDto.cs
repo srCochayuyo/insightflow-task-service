@@ -20,6 +20,7 @@ namespace TaskService.src.Dto
         [RegularExpression(@"^(Pendiente|En Progreso|Completado)$", ErrorMessage = "El estado ingresado no es válido.")]
         public string State {get; set;} = string.Empty!;
 
+        [RegularExpression(@"^(0[1-9]|[12][0-9]|3[01])\/(0[1-9]|1[0-2])\/\d{4}$", ErrorMessage = "La fecha debe tener el formato dd/mm/yyyy.")]
         public string ExpirationDate {get;set;} = string.Empty!;
 
     }

@@ -12,5 +12,7 @@ namespace TaskService.src.Interface
         public ResponseCreateTaskDto CreateTask (CreateTaskDto request);
 
         public List<ResponseGetTaskByDocumentDto> GetTaskByDocumentId (Guid DocumentId);
+
+        public ResponseGetTaskDto? GetTaskById (Guid Id);
     }
 }
