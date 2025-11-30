@@ -36,5 +36,20 @@ namespace TaskService.src.Mapper
 
             };
         }
+
+        public static ResponseEditTaskDto ToGetEditResponse (this TaskModel task)
+        {
+            return  new ResponseEditTaskDto
+            {
+                Id = task.Id,
+                UserId = task.Id,
+                Title = task.Title,
+                CompleteDescription = task.CompleteDescription,
+                State = task.State,
+                ExpirationDate = task.ExpirationDate,
+                Comments = task.Comments
+
+            };
+        }
     }
 }

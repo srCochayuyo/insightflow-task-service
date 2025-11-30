@@ -14,5 +14,7 @@ namespace TaskService.src.Interface
         public List<ResponseGetTaskByDocumentDto> GetTaskByDocumentId (Guid DocumentId);
 
         public ResponseGetTaskDto? GetTaskById (Guid Id);
+
+        public ResponseEditTaskDto EditTask(Guid Id, EditTaskDto request);
     }
 }

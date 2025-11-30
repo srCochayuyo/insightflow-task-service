@@ -64,5 +64,51 @@ namespace TaskService.src.Repository
 
             return result.ToGetTaskResponse();
         }
+
+        public ResponseEditTaskDto EditTask(Guid Id, EditTaskDto request)
+        {
+            var exist = _container.Tasks.FirstOrDefault(t => t.Id == Id);
+
+            if(exist == null)
+            {
+                throw new Exception("Error: Tarea no encontrada");
+            }
+
+            if (request.UserId.HasValue && request.UserId.Value != Guid.Empty)
+            {
+                
+                exist.UserId = request.UserId.Value;
+            }
+
+            if(!string.IsNullOrEmpty(request.Title))
+            {
+                exist.Title = request.Title;
+            }
+
+            if(!string.IsNullOrEmpty(request.CompleteDescription))
+            {
+                exist.CompleteDescription = request.CompleteDescription;
+            }
+
+            if(!string.IsNullOrEmpty(request.State))
+            {
+                exist.State = request.State;
+            }
+
+            if(!string.IsNullOrEmpty(request.ExpirationDate))
+            {
+                exist.ExpirationDate = request.ExpirationDate;
+            }
+
+            if(!string.IsNullOrEmpty(request.Comments))
+            {
+                exist.Comments = request.Comments;
+            }
+
+        
+
+            return exist.ToGetEditResponse();
+
+        }
     }
 }

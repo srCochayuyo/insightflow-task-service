@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using Microsoft.AspNetCore.Mvc;
 using TaskService.src.Dto;
+using TaskService.src.Dtos;
 using TaskService.src.Interface;
 
 namespace TaskService.src
@@ -91,6 +92,33 @@ namespace TaskService.src
                 return StatusCode(500, new { message = e.Message });
             }
         }
+
+        [HttpPut("tasks/{Id}")]
+        public IActionResult EditTask(Guid Id, EditTaskDto request)
+        {
+            try
+            {
+
+                if(!ModelState.IsValid)
+                {
+                    return BadRequest(ModelState);
+                }
+
+                var result =  _taskRepository.EditTask(Id,request);
+
+                return Ok(new
+                {
+                    message = "Tarea Editada con exito",
+                    Task = result
+                });
+                
+            }
+            catch (Exception e)
+            {
+                return StatusCode(500, new { message = e.Message });
+            }
+        }
+
 
         
 
